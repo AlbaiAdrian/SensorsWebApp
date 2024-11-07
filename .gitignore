@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Entities/bin/Debug/net6.0
+/Entities/obj
+/Sensors/.vs
+/Sensors/bin/Debug/net6.0
+/Sensors/obj

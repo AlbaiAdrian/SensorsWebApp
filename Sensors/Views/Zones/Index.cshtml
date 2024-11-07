@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Entities.Zone>
+
+@{
+    ViewData["Title"] = "Zones";
+}
+
+<h2>Zones for Group: @ViewBag.Group.Name</h2>
+<p>@ViewBag.Group.Description</p>
+
+<p>
+    <a asp-action="Create" asp-route-groupId="@ViewBag.Group.Id">Create New Zone</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Group)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientSecretKey)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Group.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClientSecretKey)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-groupId="@ViewBag.Group.Id" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-groupId="@ViewBag.Group.Id" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-groupId="@ViewBag.Group.Id" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

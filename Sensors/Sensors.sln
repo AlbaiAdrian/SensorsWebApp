@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sensors", "Sensors.csproj", "{64710AE8-9200-4AA8-B77A-F6EF83BB80F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "..\Entities\Entities.csproj", "{DDF7AC86-300C-494E-A0C4-8048C46DE92E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64710AE8-9200-4AA8-B77A-F6EF83BB80F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64710AE8-9200-4AA8-B77A-F6EF83BB80F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64710AE8-9200-4AA8-B77A-F6EF83BB80F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64710AE8-9200-4AA8-B77A-F6EF83BB80F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDF7AC86-300C-494E-A0C4-8048C46DE92E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDF7AC86-300C-494E-A0C4-8048C46DE92E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDF7AC86-300C-494E-A0C4-8048C46DE92E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDF7AC86-300C-494E-A0C4-8048C46DE92E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0021F751-9D63-4937-94BF-0C2B83512D85}
+	EndGlobalSection
+EndGlobal
