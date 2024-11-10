@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Entities;
 using Sensors.Data;
 using System.Security.Claims;
 using AutoMapper;
-using Sensors.Models.Zones;
 using Sensors.Helpers;
-using Sensors.Models.Groups;
+using Microsoft.AspNetCore.Authorization;
+using Sensors.Models.Zones;
 
 namespace Sensors.Controllers;
 
+[Authorize]
 public class ZonesController : Controller
 {
     private readonly ApplicationDbContext _context;
@@ -259,7 +259,7 @@ public class ZonesController : Controller
         }
         catch
         {
-            ModelState.AddModelError(string.Empty, "An error occurred while saving the zone. Please try again.");
+            ModelState.AddModelError(string.Empty, "An error occurred while deleting the zone. Please try again.");
         }
 
         return View(_mapper.Map<DefaultInfoZoneDTO>(zone));

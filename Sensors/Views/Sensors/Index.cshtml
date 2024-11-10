@@ -1,14 +1,14 @@
-﻿@model IEnumerable<Entities.Zone>
+﻿@model IEnumerable<Entities.Sensor>
 
 @{
-    ViewData["Title"] = "Zones";
+    ViewData["Title"] = "Index";
 }
 
-<h2>Zones for Group: @ViewBag.Group.Name</h2>
-<p>@ViewBag.Group.Description</p>
+<h2>Sensors for Zone: @ViewBag.Zone.Name</h2>
+<p>@ViewBag.Zone.Description</p>
 
 <p>
-    <a asp-action="Create" asp-route-groupId="@ViewBag.Group.Id">Create New Zone</a>
+    <a asp-route-zoneId="@ViewBag.Zone.Id" asp-action="Create">Create New Sensor</a>
 </p>
 <table class="table">
     <thead>
@@ -20,12 +20,11 @@
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Group)
+                @Html.DisplayNameFor(model => model.Zone)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ClientSecretKey)
             </th>
-            <th>Sensors</th>
             <th></th>
         </tr>
     </thead>
@@ -40,18 +39,15 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Group.Name)
+                    @Html.DisplayFor(modelItem => item.Zone.Name)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ClientSecretKey)
                 </td>
                 <td>
-                    <a asp-area="" asp-action="Index" asp-controller="Sensors" asp-route-zoneId="@item.Id">Sensors</a>
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-groupId="@ViewBag.Group.Id" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-groupId="@ViewBag.Group.Id" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-groupId="@ViewBag.Group.Id" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-zoneId="@ViewBag.Zone.Id" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-zoneId="@ViewBag.Zone.Id" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-zoneId="@ViewBag.Zone.Id" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
         }

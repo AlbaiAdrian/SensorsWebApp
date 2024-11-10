@@ -1,18 +1,19 @@
-﻿@model Sensors.Models.Zones.EditZoneDTO
+﻿@model Sensors.Models.Sensors.EditSensorDTO
 
 @{
     ViewData["Title"] = "Edit";
 }
-<h1>Edit Zone for Group: @ViewBag.Group.Name</h1>
-<p>@ViewBag.Group.Description</p>
+
+<h1>Edit Sensor for Zone: @ViewBag.Zone.Name</h1>
+<p>@ViewBag.Zone.Description</p>
 
 <h2>Edit</h2>
 
-<h4>Zone</h4>
+<h4>Sensor</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit" asp-route-groupId="@ViewBag.Group.Id">
+        <form asp-action="Edit" asp-route-zoneId="@ViewBag.Zone.Id">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
@@ -27,7 +28,7 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" /> 
-                <a asp-action="Index" asp-route-groupId="@ViewBag.Group.Id" class="btn btn-secondary">Back to List</a>
+                <a asp-action="Index" asp-route-zoneId="@ViewBag.Zone.Id" class="btn btn-secondary">Back to List</a>
             </div>
         </form>
     </div>

@@ -21,6 +21,11 @@ public class ApplicationDbContext : IdentityDbContext
     /// </summary>
     public DbSet<Zone> Zones { get; set; }
 
+    /// <summary>
+    /// Sensors table
+    /// </summary>
+    public DbSet<Sensor> Sensors { get; set; }
+
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -45,4 +50,6 @@ public class ApplicationDbContext : IdentityDbContext
                   .OnDelete(DeleteBehavior.Cascade); // Optional: specify delete behavior
         });
     }
+
+    public DbSet<Entities.Sensor>? Sensor { get; set; }
 }
