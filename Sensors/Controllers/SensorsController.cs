@@ -258,7 +258,6 @@ namespace Sensors.Controllers
             return View(_mapper.Map<DefaultInfoZoneDTO>(sensor));
         }
 
-
         private bool SensorExistsWithTheSameName(int zoneId, int sensorId, string name)
         {
             bool sensorExists = _context.Sensors.Any(s => s.ZoneId == zoneId && s.Id != sensorId && s.Name == name);

@@ -1,24 +1,36 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Sensors.Data;
 using Sensors.IdentityManager;
+using Sensors.SensorAuthentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<UserManager<IdentityUser>, CustomUserManager>();
+builder.Services.AddScoped<ISensorValidator, SensorValidator>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+// Add custom authorizationfor the sensor values controller
+builder.Services.AddAuthorization(authOptions =>
+{
+    authOptions.AddPolicy("SensorAuthorizationPolicy", authPolicy =>
+    {
+        authPolicy.Requirements.Add(new SensorAuthorizationRequirement());
+    });
+});
+
+builder.Services.AddScoped<IAuthorizationHandler, SensorAuthorizationHandler>();
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllersWithViews();
 
