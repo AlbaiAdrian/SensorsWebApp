@@ -26,6 +26,18 @@ public class ApplicationDbContext : IdentityDbContext
     /// </summary>
     public DbSet<Sensor> Sensors { get; set; }
 
+    /// <summary>
+    /// Sensor Value Type
+    /// </summary>
+    /// <param name="options"></param>
+    public DbSet<SensorValueType> SensorValueType { get; set; }
+
+    /// <summary>
+    /// Sensor Value
+    /// </summary>
+    /// <param name="options"></param>
+    public DbSet<SensorValue> SensorValue { get; set; }
+
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

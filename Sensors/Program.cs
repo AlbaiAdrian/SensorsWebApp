@@ -1,9 +1,10 @@
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Sensors.Data;
 using Sensors.IdentityManager;
 using Sensors.SensorAuthentication;
+using Sensors.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
